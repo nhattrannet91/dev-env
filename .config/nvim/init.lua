@@ -1,1 +1,0 @@
-require("nhattran.core")
