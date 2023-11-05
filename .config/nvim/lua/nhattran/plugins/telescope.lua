@@ -5,6 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
+    "ThePrimeagen/harpoon"
   },
   config = function()
     local telescope = require("telescope")
@@ -24,6 +25,7 @@ return {
     })
 
     telescope.load_extension("fzf")
+    telescope.load_extension("harpoon")
 
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
@@ -32,5 +34,12 @@ return {
     keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
     keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+
+    -- harpoon keymap
+    keymap.set("n", "<leader>fm", "<cmd>Telescope harpoon marks<cr>", { desc = "Find string under cursor in cwd" })
+    keymap.set("n", "<leader>hm", require('harpoon.mark').add_file, { desc = "Mark file with harpoon" })
+    keymap.set("n", "<leader>hn", require("harpoon.ui").nav_next, { desc = "Next harpoon mark" })
+    keymap.set("n", "<leader>hp", require("harpoon.ui").nav_prev, { desc = "Previous harpoon mark" })
+
   end,
 }
