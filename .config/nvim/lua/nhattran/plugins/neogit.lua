@@ -6,7 +6,18 @@ return {
     "sindrets/diffview.nvim",        -- optional
     "ibhagwan/fzf-lua",              -- optional
   },
-  config = true
+  config = function()
+    local neogit = require("neogit")
 
---    keymap.set("n", "<leader>gs", "<cmd>Neogit<CR>", { desc = "Git status" }) -- Open the status buffer in a new tab
+    neogit.setup({
+      mappings = {
+        status = {
+        }
+      }
+    })
+
+    local keymap = vim.keymap
+
+    keymap.set("n", "<leader>gs", "<cmd>Neogit kind=vsplit<CR>", { desc = "Git status" }) -- restore last workspace session for current directory
+  end,
 }
