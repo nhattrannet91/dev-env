@@ -17,11 +17,15 @@ return {
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
       },
       config = function()
+        require("neo-tree").setup({
+          filesystem = {
+            follow_current_file = {
+              enabled = true
+            }
+          }
+        })
 
-        require("neo-tree").setup()
-
-        local keymap = vim.keymap
-        keymap.set("n", "<leader>et", "<cmd>Neotree toggle show buffers left<CR>", { desc = "Explorer toggle" }) -- restore last workspace session for current directory
+        vim.keymap.set("n", "<leader>et", "<cmd>Neotree toggle<CR>", { desc = "Toggle" }) -- restore last workspace session for current directory
       end
   },
   {
