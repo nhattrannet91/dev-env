@@ -1,5 +1,25 @@
 return {
   {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("bufferline").setup({
+        options = {
+          buffer_close_icon = '',
+          offsets = {
+            {
+              filetype = "neo-tree",
+              text = "File Explorer",
+              separator = true,
+              text_align = "left"
+            }
+          }
+        }
+      })
+    end
+  },
+  {
     "bluz71/vim-nightfly-guicolors",
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
@@ -21,7 +41,8 @@ return {
           filesystem = {
             follow_current_file = {
               enabled = true
-            }
+            },
+            use_libuv_file_watcher = true
           }
         })
 
