@@ -5,7 +5,7 @@ return {
         "nvim-lua/plenary.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         "nvim-tree/nvim-web-devicons",
-        "ThePrimeagen/harpoon",
+        "ThePrimeagen/harpoon"
     },
     config = function()
         local telescope = require("telescope")
@@ -28,17 +28,17 @@ return {
         telescope.load_extension("harpoon")
 
         -- set keymaps
-        local keymap = vim.keymap -- for conciseness
+        local keymap = vim.keymap
 
-        keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-        keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-        keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-        keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+        keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Files" })
+        keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Recent files" })
+        keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "String" })
+        keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
+        keymap.set("n", "<leader>fm", "<cmd>Telescope harpoon marks<cr>", { desc = "Bookmarks" })
 
-        -- harpoon keymap
-        keymap.set("n", "<leader>fm", "<cmd>Telescope harpoon marks<cr>", { desc = "Find harpoon marks" })
-        keymap.set("n", "<leader>hm", require("harpoon.mark").add_file, { desc = "Mark file with harpoon" })
-        keymap.set("n", "<leader>hn", require("harpoon.ui").nav_next, { desc = "Next harpoon mark" })
-        keymap.set("n", "<leader>hp", require("harpoon.ui").nav_prev, { desc = "Previous harpoon mark" })
+        keymap.set("n", "<leader>mm", require("harpoon.ui").toggle_quick_menu, { desc = "Menu" })
+        keymap.set("n", "<leader>ma", require("harpoon.mark").add_file, { desc = "Add" })
+        keymap.set("n", "<leader>mn", require("harpoon.ui").nav_next, { desc = "Next" })
+        keymap.set("n", "<leader>mp", require("harpoon.ui").nav_prev, { desc = "Previous" })
     end,
 }

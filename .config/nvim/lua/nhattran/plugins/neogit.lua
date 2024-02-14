@@ -7,17 +7,10 @@ return {
     "ibhagwan/fzf-lua",              -- optional
   },
   config = function()
-    local neogit = require("neogit")
-
-    neogit.setup({
-      mappings = {
-        status = {
-        }
-      }
-    })
+    require("neogit").setup()
 
     local keymap = vim.keymap
 
-    keymap.set("n", "<leader>gs", "<cmd>Neogit kind=vsplit<CR>", { desc = "Git status" }) -- restore last workspace session for current directory
+    keymap.set("n", "<leader>gs", "<cmd>Neogit kind=vsplit<CR>", { desc = "Status" })
   end,
 }
