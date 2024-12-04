@@ -52,5 +52,13 @@ return {
         }),
       },
     })
+
+    -- Thanks to https://www.youtube.com/watch?v=ALGBuFLzDSA
+    cmp.setup.filetype({"sql"}, {
+      sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" }
+      }
+    })
   end,
 }
