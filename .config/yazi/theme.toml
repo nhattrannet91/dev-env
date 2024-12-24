@@ -1,0 +1,6 @@
+# The file should be copied to
+#   ~/.config/yazi/ on Unix-like systems
+#   C:\Users\USERNAME\AppData\Roaming\yazi\config\ on Windows
+
+[flavor]
+use = "catppuccin-macchiato" # This requires to clone https://github.com/yazi-rs/flavors to ./flavors/ folder
