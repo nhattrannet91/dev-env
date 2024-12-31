@@ -9,9 +9,6 @@ return {
 
     lspconfig.tsserver.setup({})
     lspconfig.csharp_ls.setup({})
-    lspconfig.angularls.setup({
-      root_dir = util.root_pattern("angular.json", "project.json")
-    })
 
     -- Use LspAttach autocommand to only map the following keys
     -- after the language server attaches to the current buffer
